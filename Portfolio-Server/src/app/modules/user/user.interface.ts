@@ -7,7 +7,7 @@ export type TUser = {
   email: string;
   image?: string;
   password: string;
-  role: 'admin' | 'user';
+  role: 'admin';
 };
 
 export type TLoginUser = {

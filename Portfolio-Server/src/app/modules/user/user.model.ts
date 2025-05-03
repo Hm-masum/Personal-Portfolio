@@ -20,7 +20,7 @@ const userSchema = new Schema<TUser, UserModel>(
     },
     password: { type: String, required: true, select: 0 },
     image: { type: String, default: null },
-    role: { type: String, enum: ['admin', 'user'], default: 'user' },
+    role: { type: String, enum: ['admin'], default: 'admin' },
   },
   {
     timestamps: true,

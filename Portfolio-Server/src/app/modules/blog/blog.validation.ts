@@ -3,6 +3,7 @@ import { z } from 'zod';
 const createBlogValidationSchema = z.object({
   body: z.object({
     title: z.string({ required_error: 'Title is required' }),
+    subtitle: z.string({ required_error: 'Title is required' }),
     description: z.string({ required_error: 'Content is required' }),
   }),
 });
@@ -10,6 +11,7 @@ const createBlogValidationSchema = z.object({
 const updateBlogValidationSchema = z.object({
   body: z.object({
     title: z.string().optional(),
+    subtitle: z.string().optional(),
     description: z.string().optional(),
   }),
 });

@@ -2,9 +2,19 @@ import { TBlog } from './blog.interface';
 import { Blog } from './blog.model';
 import AppError from '../../errors/AppError';
 import httpStatus from 'http-status';
+import { User } from '../user/user.model';
 
-const createBlogIntoDB = async (payload: TBlog) => {
-  const result = await Blog.create(payload);
+const createBlogIntoDB = async (payload: TBlog, id: string) => {
+  const user = await User.findById({ _id: id });
+  if (!user) {
+    throw new AppError(httpStatus.NOT_FOUND, 'User is not found');
+  }
+
+  payload.authorName = user?.name;
+  payload.email = user?.email;
+  payload.authorImage = user?.image;
+
+  const result = await Blog.create(payload, id);
   return result;
 };
 

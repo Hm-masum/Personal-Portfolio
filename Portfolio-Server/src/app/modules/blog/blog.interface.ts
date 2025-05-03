@@ -4,7 +4,7 @@ export type TBlog = {
   description: string;
   image?: string;
   tags: string[];
-  isPublished: boolean;
-  author?: string;
-  gmail?: string;
+  authorName?: string;
+  authorImage?: string;
+  email?: string;
 };
