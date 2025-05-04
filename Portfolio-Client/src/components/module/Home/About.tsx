@@ -1,11 +1,11 @@
 const About = () => {
   return (
     <div className="my-10">
-      <h2 className="text-2xl md:text-4xl text-yellow-600 font-semibold my-2">
+      <h2 className="text-2xl md:text-4xl text-yellow-500 font-semibold my-2">
         About
       </h2>
       <div className="flex gap-4">
-        <p className="border-t-2 border-yellow-600 w-[7%] mt-3"></p>
+        <p className="border-t-2 border-yellow-500 w-[7%] mt-3"></p>
         <p className="text-white w-[93%]">
           Hello! I am Habibullah Mohammad Masum, a passionate Computer Science
           and Engineering student and web developer. With expertise in HTML,

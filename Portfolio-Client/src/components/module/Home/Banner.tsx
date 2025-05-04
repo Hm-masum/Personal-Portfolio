@@ -12,7 +12,7 @@ const Banner = () => {
       <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-5">
         <div className="md:w-1/2 space-y-2 md:space-y-4">
           <h3 className="md:text-2xl font-semibold">Hi, I am</h3>
-          <h2 className="md:text-5xl text-2xl text-yellow-600 font-semibold">
+          <h2 className="md:text-5xl text-2xl text-yellow-500 font-semibold">
             Habibullah Mohammad Masum
           </h2>
           <p>A Web developer and competitive programmer.</p>
@@ -21,7 +21,7 @@ const Banner = () => {
             <a
               href="/assets/resume.pdf"
               download
-              className="p-3 border border-yellow-600 rounded-lg hover:bg-yellow-600 hover:text-black text-yellow-600 flex items-center gap-1"
+              className="p-3 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-black text-yellow-500 flex items-center gap-1"
             >
               <RiDownload2Fill className="text-xl" /> Download CV
             </a>
@@ -38,7 +38,7 @@ const Banner = () => {
           <Image src={img} className="w-[200px] md:w-[370px]" alt="" />
           <div className="absolute -right-8 md:right-10 bottom-0">
             <div className="flex flex-col items-center space-y-3 w-[50px]">
-              <p className="border border-yellow-700 h-16"></p>
+              <p className="border border-yellow-500 h-16"></p>
               <Link href="https://www.facebook.com/profile.php?id=100004515194784">
                 <FaFacebook className="text-2xl text-white" />
               </Link>

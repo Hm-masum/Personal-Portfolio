@@ -48,12 +48,15 @@ const CarouselCard = ({
                   />
                 </div>
                 <div className="text-white space-y-2">
-                  <h2 className="text-2xl font-semibold">
+                  <h2 className="text-center md:text-start text-2xl font-semibold">
                     {certification?.title}
                   </h2>
                   <h2>
                     {certification.achievements.map((achievement, idx) => (
-                      <p key={idx} className="flex items-center gap-2">
+                      <p
+                        key={idx}
+                        className="flex text-center md:text-start gap-2"
+                      >
                         <GraduationCap className="text-xl font-semibold text-yellow-600" />
                         {achievement}
                       </p>
@@ -64,8 +67,8 @@ const CarouselCard = ({
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="hidden md:flex bg-zinc-900 border-yellow-500 text-yellow-500" />
+        <CarouselNext className="hidden md:flex bg-zinc-900 border-yellow-500 text-yellow-500" />
       </Carousel>
     </div>
   );

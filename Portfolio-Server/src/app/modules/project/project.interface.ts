@@ -7,4 +7,5 @@ export type TProject = {
   frontEndRepo: string;
   backEndRepo: string;
   liveLink: string;
+  showHome: 'yes' | 'no';
 };

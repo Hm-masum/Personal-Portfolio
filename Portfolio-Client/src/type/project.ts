@@ -8,4 +8,5 @@ export type IProject = {
   frontEndRepo: string;
   backEndRepo: string;
   liveLink: string;
+  showHome?: "yes" | "no";
 };

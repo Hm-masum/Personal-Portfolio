@@ -132,7 +132,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <Link href="/">
+              <Link href="/" className="bg-gray-200">
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <h2 className="font-bold text-center text-xl">HM Masum</h2>
                 </div>

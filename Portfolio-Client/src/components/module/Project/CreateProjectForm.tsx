@@ -85,6 +85,7 @@ const CreateProjectForm = () => {
         features,
         technologies,
         image: imageUrl,
+        showHome: "no",
       };
       const res = await createProject(projectData);
       if (res.success) {

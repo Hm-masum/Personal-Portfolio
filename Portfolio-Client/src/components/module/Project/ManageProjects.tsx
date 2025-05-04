@@ -1,9 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { Button } from "@/components/ui/button";
 import DeleteConfirmationModal from "@/components/ui/core/PModal";
 import { PTable } from "@/components/ui/core/PTable";
-import { deleteProject } from "@/services/Project";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { deleteProject, updateProject } from "@/services/Project";
 import { IProject } from "@/type/project";
 import { ColumnDef } from "@tanstack/react-table";
 import { Edit, Trash } from "lucide-react";
@@ -39,6 +47,24 @@ const ManageProjects = ({ projects }: { projects: IProject[] }) => {
     }
   };
 
+  const handleShowHome = async (id: string, value: string) => {
+    try {
+      const payload = {
+        showHome: value,
+      };
+      const res = await updateProject(payload, id);
+
+      console.log(res);
+      if (res?.success) {
+        toast.success("Project updated successfully!");
+      } else {
+        toast.error("Something is wrong!");
+      }
+    } catch (err: any) {
+      toast.error(err?.message);
+    }
+  };
+
   const columns: ColumnDef<IProject>[] = [
     {
       accessorKey: "title",
@@ -51,12 +77,39 @@ const ManageProjects = ({ projects }: { projects: IProject[] }) => {
       cell: ({ row }) => <span>{row.original.liveLink}</span>,
     },
     {
-      accessorKey: "frontEndRepo",
-      header: "FrontEndRepo",
-      cell: ({ row }) => <span>{row.original.frontEndRepo}</span>,
+      accessorKey: "showHome",
+      header: "ShowHome",
+      cell: ({ row }) => {
+        const status = row?.original?.showHome;
+        return (
+          <p>
+            <Select
+              value={status}
+              onValueChange={(value) => handleShowHome(row.original._id, value)}
+            >
+              <SelectTrigger className="w-[120px]">
+                <SelectValue placeholder="Show Home" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="yes">Yes</SelectItem>
+                <SelectItem value="no">No</SelectItem>
+              </SelectContent>
+            </Select>
+          </p>
+        );
+      },
     },
     {
       accessorKey: "action",
+      header: "Details",
+      cell: ({ row }) => (
+        <Button onClick={() => router.push(`/projects/${row.original._id}`)}>
+          Details
+        </Button>
+      ),
+    },
+    {
+      accessorKey: "action1",
       header: "Update",
       cell: ({ row }) => (
         <Button

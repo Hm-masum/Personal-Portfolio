@@ -11,6 +11,7 @@ const projectSchema = new Schema<TProject>(
     frontEndRepo: { type: String, required: true },
     backEndRepo: { type: String, required: true },
     liveLink: { type: String, required: true },
+    showHome: { type: String, enum: ['yes', 'no'] },
   },
   {
     timestamps: true,

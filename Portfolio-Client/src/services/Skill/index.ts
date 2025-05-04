@@ -83,7 +83,7 @@ export const deleteSkill = async (skillId: string): Promise<any> => {
   try {
     const token = await getValidToken();
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API}/experiences/${skillId}`,
+      `${process.env.NEXT_PUBLIC_BASE_API}/skills/${skillId}`,
       {
         method: "DELETE",
         headers: {
